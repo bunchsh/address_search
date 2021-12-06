@@ -111,7 +111,7 @@
                                         <span class="input postcode_input">
                                             <input type="text" id="postcode" class="int" title="POSTCODE" placeholder="우편번호" readonly/>
                                         </span>
-                                        <button type="button" id="add_btn">우편번호 찾기</button>
+                                        <button type="button" id="add_btn" onclick="DaumPostcode()">우편번호 찾기</button>
                                         <span class="input address_input">
                                             <input type="text" id="address" class="int" title="address" name="address" placeholder="주소" readonly/>
                                         </span>
@@ -142,16 +142,14 @@
     <script src="/js/available_test.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
-        window.onload = function() {
-            document.querySelector('#postcode').addEventListener('click', (e) => {
-                new daum.Postcode({
-                    oncomplete: function(data) {
-                        document.getElementById('postcode').value = data.zonecode;
-                        document.getElementById('address').value = data.address;
-                        document.querySelector('input[name=address_detail]').focus();
-                    }
-                }).open();
-            });
+        function DaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    document.getElementById('postcode').value = data.zonecode;
+                    document.getElementById('address').value = data.address;
+                    document.querySelector('input[name=address_detail]').focus();
+                }
+            }).open();
         }
     </script>
 </body>
