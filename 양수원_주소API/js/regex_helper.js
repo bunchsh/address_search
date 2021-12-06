@@ -229,4 +229,59 @@ class RegexHelper {
      cellphone(selector, msg) {
         return this.field(selector, msg, /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/);
     }
+
+    /**
+     * 우편번호 형식인지 검사하기 위해 field()를 간접적으로 호출
+     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
+     * @param {string} msg        표시할 메시지
+     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
+     */
+     postnumber(selector, msg) {
+        return this.field(selector, msg, /^\d{3}-\d{3}|\d{5}/);
+    }
+    
+
+    /**
+     * 지번주소 형식인지 검사하기 위해 field()를 간접적으로 호출
+     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
+     * @param {string} msg        표시할 메시지
+     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
+     */
+     jibunAddress(selector, msg) {
+        return this.field(selector, msg, /^((?!상가)[가-힣])+(\d{1,5}|(\d{1,5}[가-힣,]+\d{1,5})?)(읍|면|동|가)$/);
+    }
+
+    /**
+     * 도로명 주소 형식인지 검사하기 위해 field()를 간접적으로 호출
+     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
+     * @param {string} msg        표시할 메시지
+     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
+     */
+     roadAddress(selector, msg) {
+        return this.field(selector, msg, /^[가-힣A-Za-z·\d~\-\.]+(로|길)$/);
+    }
+
+    /**
+     * 도로명주소 형식과 지번주소 형식 둘중 하나를 충족하는지 검사
+     * @param {string} selector 입력요소에 해당하는 CSS 선택자
+     * @param {string} msg      표시할 메시지
+     * @return {boolean} 조건에 충족할 경우 true / 그렇지 않을 경우 false
+     */
+         Address(selector, msg) {
+            let check1 = /^((?!상가)[가-힣])+(\d{1,5}|(\d{1,5}[가-힣,]+\d{1,5})?)(읍|면|동|가)$/
+            let check2 = /^[가-힣A-Za-z·\d~\-\.]+(로|길)$/;
+    
+            const field = document.querySelector(selector);
+            let src = field.value.trim(); //입력값을 가져온다.
+    
+            // 입력값이 없거나, 도로명주소 형식도 아니고 지번주소 형식도 아니라면?
+            if(!src || (!check1.test(src) && !check2.test(src))) {
+                alert(msg);
+                field.value = '';
+                field.focus();
+                return false;
+            }
+            return true;
+        }
 }
+

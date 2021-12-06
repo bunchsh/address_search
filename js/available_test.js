@@ -38,6 +38,12 @@ document.querySelector('#join_form').addEventListener("submit", e => {
     if(!regexHelper.value('#tel', '연락처를 입력하세요.')) {return false;}
     if(!regexHelper.cellphone('#tel', '연락처가 잘못되었습니다.')) {return false;}
 
+     // 주소 검사
+     if(!regexHelper.value('#postcode', '주소를 입력하세요.')) {return false;}
+
+      // 상세주소 검사
+    if(!regexHelper.value('#address_detail', '상세주소를 입력하세요.')) {return false;}
+
      /** 처리 완료 */
      alert("가입이 완료되었습니다.");
 });
