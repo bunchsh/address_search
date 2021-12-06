@@ -1,3 +1,9 @@
+<!--
+ @filename    : index.html
+ @author      : 한송희 (onee.ssong@gmail.com), 정민아 (alsdk5069@gmail.com), 양수원 (ysw7939@gmail.com)
+ @description : 회원가입 페이지의 구조 구현
+-->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,95 +11,130 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/style_t.css">
 </head>
 <body>
-    <div id="container">
-        <div id="header" class="clearfix">
-            <h2 class="pull-left">기본정보</h2>
-            <h5 class="pull-right">＊ 표시는 반드시 입력하셔야 하는 항목입니다.</h5>
+    <div class="wrap">
+        <!------ HEADER ------>
+        <div id="header">
+            <div class="logo">
+                <h2>Join Page</h2>
+            </div>
         </div>
 
-        <hr/>
-        
-        <div id="content">
-            <form name="join_form" id="join_form">
-                <!-- ID -->
-                <div id="user_id" class="clearfix">
-                    <label for="user_id"><h3>* 아이디</h3></label>
-                    <span class="box">
-                        <input type="text" id="user_id" class="int" />
-                    </span>
-                </div>
+        <!------ CONTAINER ------>
+        <div id="container">
+            <div class="content">
 
-                <!-- PW1 -->
-                <div class="clearfix">
-                    <label for="user_pw"><h3>* 비밀번호</h3></label>
-                    <span class="box int_pass">
-                        <input type="password" id="user_pw" class="int">
-                    </span>
-                </div>
+                <table>
+                    <tbody>
+                        <!-- 아이디 -->
+                        <tr>
+                            <th>
+                                <span class="join_title">아이디</span>
+                            </th>
+                            <td>
+                                <span class="input id_input">
+                                    <input type="text" id="id" class="int"/>
+                                </span>
+                            </td>
+                        </tr>
 
-                <!-- PW2 -->
-                <div class="clearfix">
-                    <label for="user_pw_re"><h3>* 비밀번호 확인</h3></label>
-                    <span class="box int_pass_check">
-                        <input type="password" id="user_pw_re" class="int">
-                    </span>
-                </div>
+                        <!-- 비밀번호 -->
+                        <tr>
+                            <th>
+                                <span class="join_title">비밀번호</span>
+                            </th>
+                            <td>
+                                <span class="input id_input">
+                                    <input type="text" id="id" class="int"/>
+                                </span>
+                            </td>
+                        </tr>
 
-                <!-- NAME -->
-                <div class="clearfix">
-                    <label for="user_name"><h3>* 이름</h3></label></h3>
-                    <span class="box int_name">
-                        <input type="text" id="user_name" class="int" />
-                    </span>
-                </div>
+                        <!-- 비밀번호 확인 -->
+                        <tr>
+                            <th>
+                                <span class="join_title">비밀번호 확인</span>
+                            </th>
+                            <td>
+                                <span class="input pw_input">
+                                    <input type="password" id="pw" class="int"/>
+                                </span>
+                            </td>
+                        </tr>
 
-                <!-- EMAIL -->
-                <div class="clearfix">
-                    <label for="email"><h3>&nbsp;&nbsp;이메일</h3></label></h3>
-                    <span class="box">
-                        <input type="text" id="email" class="int">
-                    </span>
-                    <span class="box">
-                        <select id="email" class="dropdown">
-                            <option value="">직접입력</option>
-                            <option value="naver">@naver.com</option>
-                        </select>
-                    </span>
-                </div>
+                        <!-- 이름 -->
+                        <tr>
+                            <th>
+                                <span class="join_title">이름</span>
+                            </th>
+                            <td>
+                                <span class="input pw_input_re">
+                                    <input type="password" id="pw_re" class="int"/>
+                                </span>
+                            </td>
+                        </tr>
 
-                <!-- MOBILE -->
-                <div class="clearfix">
-                    <label for="phoneNo"><h3>&nbsp;&nbsp;휴대폰번호</h3></label>
-                    <div class="phoneNo">
-                        <span class="signup-input">
-                            <input type="tel" class="int" id="tel" placeholder="-없이 입력하세요."></input>
-                        </span>
+                        <!-- 이메일 -->
+                        <tr>
+                            <th>
+                                <span class="join_title">이메일</span>
+                            </th>
+                            <td>
+                                <span class="input name_input">
+                                    <input type="text" id="name" class="int"/>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- 휴대폰 번호 -->
+                        <tr>
+                            <th>
+                                <span class="join_title">휴대폰 번호</span>
+                            </th>
+                            <td>
+                                <span class="input email_input">
+                                    <input type="email" id="email" class="int" title="EMAIL" />
+                                </span>
+                            </td>
+                        </tr>
+
+                        <!-- 주소 -->
+                        <tr>
+                            <th>
+                                <span class="join_title">주소</span>
+                            </th>
+                            <td>
+                                <div class="info_input post">
+                                    <span class="input postcode_input">
+                                        <input type="text" id="postcode" class="int" title="POSTCODE" placeholder="우편번호" readonly/>
+                                    </span>
+                                    <button type="button" id="add_btn">우편번호 찾기</button>
+                                    <span class="input address_input">
+                                        <input type="text" id="postcode" class="int" title="address" placeholder="주소" readonly/>
+                                    </span>
+                                    <span class="input addressde_input">
+                                        <input type="text" id="address_detail" class="int" title="ADDRESSDETAIL" placeholder="상세주소"/>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 제출 버튼 -->
+                <div class="group">
+                    <div class="join_group">
+                        <div class="join_btn">
+                            <button type="submit" id="btnJoin" class="btn_type btn_primary">
+                                <span>가입하기</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <!-- ADRESS -->
-                <div class="address">
-                    <label for="address" class="address_label"><h3>&nbsp;&nbsp;주소</h3></label>
-                    <div>
-                        <input type="text" style="cursor:pointer;" class="int postcode" readonly />
-                        <button type="submit" class="postcode_btn">우편번호 검색</button><br>
-                        <input class="int address" type="text" /><br>
-                        <input class="int addessde" type="text" />
-                    </div>
-                </div>
-
-                <hr/>
-
-                <!-- JOIN BTN-->
-                <div class="btn_area">
-                    <button type="submit" id="btnJoin">
-                        <span>가입하기</span>
-                    </button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </body>
