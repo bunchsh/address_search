@@ -118,7 +118,7 @@ h2 {
     display: inline-block;
     height: 30px;
     border: 1px solid #dadada;
-    vertical-align:
+    vertical-align: top;
 }
 
 .addressde_input {
