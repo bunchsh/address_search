@@ -1,6 +1,6 @@
 /**
  * @filename    : regex_helper.js
- * @author      : 한송희 (onee.ssong@gmail.com)
+ * @author      : 한송희 (onee.ssong@gmail.com), 정민아 (alsdk5069@gmail.com), 양수원 (ysw7939@gmail.com)
  * @description : 정규표현식 검사 수행 후, true/false로 해당 정규표현식을 충족하는지 여부를 반환하는 함수들의 모음
  */
 
