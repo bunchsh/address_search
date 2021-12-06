@@ -4,7 +4,7 @@
  * @description : 유효성 검사 함수들의 모음
  */
 
-
+ document.write("<script src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>");
 
 function DaumPostcode() {
     new daum.Postcode({
