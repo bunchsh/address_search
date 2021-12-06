@@ -191,26 +191,6 @@ class RegexHelper {
     }
 
     /**
-     * 숫자로만 이루어졌는지 검사하기 위해 field()를 간접적으로 호출
-     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
-     * @param {string} msg        표시할 메시지
-     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
-     */
-    num(selector, msg) {
-        return this.field(selector, msg, /^[0-9]*$/);
-    }
-
-    /**
-     * 영문으로만 이루어졌는지 검사하기 위해 field()를 간접적으로 호출
-     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
-     * @param {string} msg        표시할 메시지
-     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
-     */
-     eng(selector, msg) {
-        return this.field(selector, msg, /^[a-zA-Z]*$/);
-    }
-
-    /**
      * 한글로만 이루어졌는지 검사하기 위해 field()를 간접적으로 호출
      * @param {string} selector   입력 요소에 해당하는 CSS 선택자
      * @param {string} msg        표시할 메시지
@@ -231,16 +211,6 @@ class RegexHelper {
     }
 
     /**
-     * 한글과 숫자로만 이루어졌는지 검사하기 위해 field()를 간접적으로 호출
-     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
-     * @param {string} msg        표시할 메시지
-     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
-     */
-     kor_num(selector, msg) {
-        return this.field(selector, msg, /^[ㄱ-ㅎ가-힣0-9]*$/);
-    }
-
-    /**
      * 이메일 주소 형식인지 검사하기 위해 field()를 간접적으로 호출
      * @param {string} selector   입력 요소에 해당하는 CSS 선택자
      * @param {string} msg        표시할 메시지
@@ -258,39 +228,5 @@ class RegexHelper {
      */
      cellphone(selector, msg) {
         return this.field(selector, msg, /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/);
-    }
-
-    /**
-     * 집전화 형식인지 검사하기 위해 field()를 간접적으로 호출
-     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
-     * @param {string} msg        표시할 메시지
-     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
-     */
-     telphone(selector, msg) {
-        return this.field(selector, msg, /^\d{2,3}\d{3,4}\d{4}$/);
-    }
-
-    /**
-     * 핸드폰번호 형식과 집전화번호 형식 둘 중 하나를 충족하는지 검사하기 위해 field()를 간접적으로 호출
-     * @param {string} selector   입력 요소에 해당하는 CSS 선택자
-     * @param {string} msg        표시할 메시지
-     * @return {boolean}          표현식을 충족할 경우 true / 그렇지 않을 경우 false
-     */
-     phone(selector, msg) {
-         let check1 = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/; // 핸드폰 형식
-         let check2 = /^\d{2,3}\d{3,4}\d{4}$/; // 집전화 형식
-
-         const field = document.querySelector(selector);
-         let src = field.value.trim(); // 입력값을 가져옴
-
-         // 입력값이 없거나, 핸드폰 형식도 아니고 집전화 형식도 아니라면?
-         if (!src || (!check1.test(src) && !check2.test(src))) {
-             alert(msg); // 메시지 표시
-             field.value = ''; // 입력값을 강제로 지운다
-             field.focus(); // 포커스 지정
-             return false; // 실패했음을 반환
-         }
-         
-         return true; // 성공했음을 반환
     }
 }
