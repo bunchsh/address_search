@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <div id="container">
+        <div id="header" class="clearfix">
+            <h2 class="pull-left">기본정보</h2>
+            <h5 class="pull-right">＊ 표시는 반드시 입력하셔야 하는 항목입니다.</h5>
+        </div>
+
+        <hr/>
+        
+        <div id="content">
+            <form name="join_form" id="join_form">
+                <!-- ID -->
+                <div id="user_id" class="clearfix">
+                    <label for="user_id"><h3>* 아이디</h3></label>
+                    <span class="box">
+                        <input type="text" id="user_id" class="int" />
+                    </span>
+                </div>
+
+                <!-- PW1 -->
+                <div class="clearfix">
+                    <label for="user_pw"><h3>* 비밀번호</h3></label>
+                    <span class="box int_pass">
+                        <input type="password" id="user_pw" class="int">
+                    </span>
+                </div>
+
+                <!-- PW2 -->
+                <div class="clearfix">
+                    <label for="user_pw_re"><h3>* 비밀번호 확인</h3></label>
+                    <span class="box int_pass_check">
+                        <input type="password" id="user_pw_re" class="int">
+                    </span>
+                </div>
+
+                <!-- NAME -->
+                <div class="clearfix">
+                    <label for="user_name"><h3>* 이름</h3></label></h3>
+                    <span class="box int_name">
+                        <input type="text" id="user_name" class="int" />
+                    </span>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="clearfix">
+                    <label for="email"><h3>&nbsp;&nbsp;이메일</h3></label></h3>
+                    <span class="box">
+                        <input type="text" id="email" class="int">
+                    </span>
+                    <span class="box">
+                        <select id="email" class="dropdown">
+                            <option value="">직접입력</option>
+                            <option value="naver">@naver.com</option>
+                        </select>
+                    </span>
+                </div>
+
+                <!-- MOBILE -->
+                <div class="clearfix">
+                    <label for="phoneNo"><h3>&nbsp;&nbsp;휴대폰번호</h3></label>
+                    <div class="phoneNo" style="display: flex;">
+                        <span class="signup-input">
+                            <input type="tel" class="signup-phone" id="tel" placeholder="-없이 입력하세요."></input>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Telephone -->
+                <div class="clearfix">
+                    <label for="TelNo"><h3>&nbsp;&nbsp;전화번호</h3></label>
+                    <div class="TelNo" style="display: flex;">
+                        <span class="signup-input">
+                            <input type="tel" class="signup-phone" id="tel" placeholder="-없이 입력하세요."></input>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- ADRESS -->
+                <div>
+                    <label for="adress"><h3>&nbsp;&nbsp;주소</h3></label>
+                    <div>
+                        <input type="text" style="cursor:pointer;" readonly />
+                        <button type="submit">우편번호 검색</button><br>
+                        <input type="text" /><br>
+                        <input type="text" />
+                    </div>
+                </div>
+
+                <hr/>
+
+                <!-- JOIN BTN-->
+                <div class="btn_area">
+                    <button type="submit" id="btnJoin">
+                        <span>가입하기</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
