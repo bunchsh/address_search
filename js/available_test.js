@@ -40,6 +40,7 @@ document.querySelector('#join_form').addEventListener("submit", e => {
 
      // 주소 검사
      if(!regexHelper.value('#postcode', '주소를 입력하세요.')) {return false;}
+     if(!regexHelper.value('#address', '주소를 입력하세요.')) {return false;}
 
       // 상세주소 검사
     if(!regexHelper.value('#address_detail', '상세주소를 입력하세요.')) {return false;}
