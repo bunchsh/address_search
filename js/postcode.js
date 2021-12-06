@@ -1,10 +1,10 @@
 /**
- * @filename    : regex_helper.js
+ * @filename    : postcode.js
  * @author      : 한송희 (onee.ssong@gmail.com), 정민아 (alsdk5069@gmail.com), 양수원 (ysw7939@gmail.com)
- * @description : 유효성 검사 함수들의 모음
+ * @description : 카카오 주소 API 관련 함수
  */
 
- document.write("<script src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>");
+document.write("<script src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>");
 
 function DaumPostcode() {
     new daum.Postcode({
@@ -26,9 +26,9 @@ function DaumPostcode() {
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             document.getElementById('postcode').value = data.zonecode;
-            document.getElementById("address").value = addr;
+            document.getElementById('address').value = addr;
             // 커서를 상세주소 필드로 이동한다.
-            document.getElementById("address_detail").focus();
+            document.getElementById('address_detail').focus();
         }
     }).open();
 }
