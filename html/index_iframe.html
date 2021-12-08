@@ -6,14 +6,14 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<head profile="http://www.w3.org/2005/10/profile">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5807/5807672.png">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <div class="wrap">
@@ -138,14 +138,25 @@
                 </div>
             </div>
         </form>
+
+        <div id="window">
+            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="closeBtn" onclick="closePostcode()" />
+        </div>
     </div>
 
-    <script src="./js/available_test.js"></script>
-    <script src="./js/regex_helper.js"></script>
+    <script src="/js/available_test.js"></script>
+    <script src="/js/regex_helper.js"></script>
     
-    <!-- 통합 로딩 방식 : postcode.v2.js 라는 이름의 파일 로딩을 통해 우편번호 서비스를 이용 가능 -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
+    // 우편번호 찾기 화면을 넣을 element
+    let postcodeWindow = document.getElementById('window');
+
+    function closePostcode() {
+        // iframe을 넣은 element를 안보이게 한다.
+        postcodeWindow.style.display = 'none';
+    }
+
     window.onload = function(){
         document.getElementById("add_btn").addEventListener("click", function(){ //우편번호 버튼 클릭 시
             //카카오 지도 발생
@@ -153,10 +164,37 @@
                 oncomplete: function(data) { //선택시 입력값 세팅
                     document.getElementById("postcode").value = data.zonecode;  // 우편번호 넣기
                     document.getElementById("address").value = data.address;    // 주소 넣기
-                    document.getElementById("address_detail").focus();          // 상세주소 포커싱
-                }
-            }).open();
+                    document.getElementById("address_detail").focus();  // 상세주소 포커싱
+
+                    // iframe 감춤
+                    postcodeWindow.style.display = 'none';
+                }, 
+                width : '100%',
+                height : '100%',
+                maxSuggestItems : 5 
+            }).embed(postcodeWindow);
+
+            // iframe 표출
+            postcodeWindow.style.display = 'block';
+
+            // iframe 이동
+            iframePosition();
         });
+    }
+
+    function iframePosition(){
+        // iframe 크기 및 선
+        let width = 300;
+        let height = 400;
+        let borderWidth = 5;
+
+        postcodeWindow.style.width = width + 'px';
+        postcodeWindow.style.height = height + 'px';
+        postcodeWindow.style.border = borderWidth + 'px solid';
+        
+        // 화면 너비와 높이 값을 가져와 중앙에 위치하도록 계산
+        postcodeWindow.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
+        postcodeWindow.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }
     </script>
 </body>

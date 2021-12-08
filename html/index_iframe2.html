@@ -11,8 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5807/5807672.png">
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <div class="wrap">
@@ -112,6 +113,9 @@
                                             <input type="text" id="postcode" class="int" title="POSTCODE" placeholder="우편번호" readonly/>
                                         </span>
                                         <button type="button" id="add_btn">우편번호 찾기</button>
+                                        <div id="postcodeWrap">
+                                            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="closedBtn" onclick="closePostcode()" />
+                                        </div>
                                         <span class="input address_input">
                                             <input type="text" id="address" class="int" title="ADDRESS" placeholder="주소" readonly/>
                                         </span>
@@ -137,10 +141,6 @@
                 </div>
             </div>
         </form>
-
-        <div id="window">
-            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="closeBtn" onclick="closePostcode()" />
-        </div>
     </div>
 
     <script src="/js/available_test.js"></script>
@@ -149,11 +149,11 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
     // 우편번호 찾기 화면을 넣을 element
-    let postcodeWindow = document.getElementById('window');
+    let postcodeWrap = document.getElementById('postcodeWrap');
 
     function closePostcode() {
         // iframe을 넣은 element를 안보이게 한다.
-        postcodeWindow.style.display = 'none';
+        postcodeWrap.style.display = 'none';
     }
 
     window.onload = function(){
@@ -166,34 +166,30 @@
                     document.getElementById("address_detail").focus();  // 상세주소 포커싱
 
                     // iframe 감춤
-                    postcodeWindow.style.display = 'none';
+                    postcodeWrap.style.display = 'none';
                 }, 
                 width : '100%',
                 height : '100%',
                 maxSuggestItems : 5 
-            }).embed(postcodeWindow);
+            }).embed(postcodeWrap);
 
             // iframe 표출
-            postcodeWindow.style.display = 'block';
+            postcodeWrap.style.display = 'block';
 
             // iframe 이동
-            iframePosition();
+            iframeSize();
         });
     }
 
-    function iframePosition(){
+    function iframeSize(){
         // iframe 크기 및 선
-        let width = 300;
-        let height = 400;
+        let width = 635;
+        let height = 835;
         let borderWidth = 5;
 
-        postcodeWindow.style.width = width + 'px';
-        postcodeWindow.style.height = height + 'px';
-        postcodeWindow.style.border = borderWidth + 'px solid';
-        
-        // 화면 너비와 높이 값을 가져와 중앙에 위치하도록 계산
-        postcodeWindow.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
-        postcodeWindow.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
+        postcodeWrap.style.width = width + 'px';
+        postcodeWrap.style.height = height + 'px';
+        postcodeWrap.style.border = borderWidth + 'px solid';
     }
     </script>
 </body>
