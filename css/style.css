@@ -134,3 +134,40 @@ h2 {
     border: 1px solid #dadada;
     margin: 40px 28%;
 }
+
+/* 우편번호 iframe 창 */
+
+/* form 위의 ifram 창 */
+#window {
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-overflow-scrolling: touch;
+}
+
+#closeBtn {
+    cursor: pointer;
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    z-index: 1;
+}
+
+/* 끼워넣는 ifram 창 */
+#postcodeWrap {
+    display: none;
+    border: 1px solid;
+    width: 500px;
+    height: 300px;
+    margin: 5px 0;
+    position: relative;
+}
+
+#closedBtn {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: -1px;
+    z-index: 1;
+}

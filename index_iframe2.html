@@ -112,8 +112,8 @@
                                             <input type="text" id="postcode" class="int" title="POSTCODE" placeholder="우편번호" readonly/>
                                         </span>
                                         <button type="button" id="add_btn">우편번호 찾기</button>
-                                        <div id="postcodeWrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-                                            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="closeBtn" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="closePostcode()" />
+                                        <div id="postcodeWrap">
+                                            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="closedBtn" onclick="closePostcode()" />
                                         </div>
                                         <span class="input address_input">
                                             <input type="text" id="address" class="int" title="ADDRESS" placeholder="주소" readonly/>
