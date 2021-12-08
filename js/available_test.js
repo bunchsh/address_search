@@ -4,7 +4,7 @@
  * @description : 유효성 검사 함수들의 모음
  */
 
-document.write("<script src='/js/regex_helper.js'></script>");
+document.write("<script src='/regex_helper.js'></script>");
 
 /**--- 유효성 검사 ---*/
 document.querySelector('#join_form').addEventListener("submit", e => {
